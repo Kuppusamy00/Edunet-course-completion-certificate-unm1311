@@ -1,50 +1,68 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>PDF Download/View</title>
-<h2>v kuppusamy</h2>
-<h2>cours completion certificate</h2>
-
-<h3>Government arts college autonomous, Nandanam, Chennai. </h3>
-<h4>college code: asunm1311</h4>
 <style>
+  body {
+    font-family: Arial, sans-serif; /* Set a default font */
+  }
+
+  h2 {
+    color: #333; /* Dark gray color */
+    font-size: 2em; /* Larger font size */
+    text-align: center;
+  }
+
+  h3 {
+    color: #555; /* Medium gray color */
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  h4 {
+    color: #777; /* Light gray color */
+    font-size: 1.2em;
+    text-align: center;
+  }
+
   .container {
     text-align: center;
-    margin-top: 100px; /* Increased margin */
+    margin-top: 100px;
   }
 
   .button {
-    padding: 15px 30px; /* Bigger buttons */
+    padding: 15px 30px;
     margin: 20px;
     font-size: 18px;
     cursor: pointer;
     border: none;
     border-radius: 8px;
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
   .download-button {
-    background-color: #4CAF50; /* Green for download */
+    background-color: #4CAF50;
     color: white;
   }
 
   .view-button {
-    background-color: #008CBA; /* Blue for view */
+    background-color: #008CBA;
     color: white;
   }
 
   .button:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+    transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   }
 
   .download-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
   }
 
   .view-button:hover {
-    background-color: #0077b3; /* Darker blue on hover */
+    background-color: #0077b3;
   }
 
   @keyframes pulse {
@@ -56,24 +74,34 @@
   .pulse-animation {
     animation: pulse 2s infinite;
   }
-
 </style>
 </head>
 <body>
 
 <div class="container">
+  <h2>v kuppusamy</h2>
+  <h3>course completion certificate</h3>
+
+  <h4>Government arts college (autonomous), Nandanam, Chennai. </h4>
+  <h4>college code: asunm1311</h4>
+
   <button class="button download-button pulse-animation" onclick="downloadPdf()">Download PDF</button>
   <button class="button view-button" onclick="viewPdf()">View PDF</button>
 </div>
 
 <script>
   function downloadPdf() {
-    const link = document.createElement('a');
-    link.href = 'Certificate.pdf';
-    link.download = 'Certificate.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    if (typeof document.createElement('a').download !== 'undefined') {
+      const link = document.createElement('a');
+      link.href = 'Certificate.pdf';
+      link.download = 'Certificate.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      window.alert("Download not supported. Opening PDF in new tab.");
+      window.open('Certificate.pdf');
+    }
   }
 
   function viewPdf() {
