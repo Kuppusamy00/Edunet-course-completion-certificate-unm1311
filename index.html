@@ -5,29 +5,10 @@
 <title>PDF Download/View</title>
 <style>
   body {
-    font-family: Arial, sans-serif; /* Set a default font */
-  }
-
-  h2 {
-    color: #333; /* Dark gray color */
-    font-size: 2em; /* Larger font size */
-    text-align: center;
-  }
-
-  h3 {
-    color: #555; /* Medium gray color */
-    font-size: 1.5em;
-    text-align: center;
-  }
-
-  h4 {
-    color: #777; /* Light gray color */
-    font-size: 1.2em;
-    text-align: center;
+    text-align: center; /* Center everything in the body */
   }
 
   .container {
-    text-align: center;
     margin-top: 100px;
   }
 
@@ -74,38 +55,34 @@
   .pulse-animation {
     animation: pulse 2s infinite;
   }
+
 </style>
 </head>
 <body>
 
+<h2 style="font-family: 'Arial', sans-serif; color: #333;">v kuppusamy</h2>
+<h2 style="font-family: 'Georgia', serif; color: #0070c0;">course completion certificate</h2>
+
+<h3 style="font-family: 'Verdana', sans-serif; color: #555;">Government arts college autonomous, Nandanam, Chennai. </h3>
+<h4 style="font-family: 'Times New Roman', serif; color: #777;">college code: asunm1311</h4>
+
 <div class="container">
-  <h2>v kuppusamy</h2>
-  <h3>course completion certificate</h3>
-
-  <h4>Government arts college (autonomous), Nandanam, Chennai. </h4>
-  <h4>college code: asunm1311</h4>
-
   <button class="button download-button pulse-animation" onclick="downloadPdf()">Download PDF</button>
   <button class="button view-button" onclick="viewPdf()">View PDF</button>
 </div>
 
 <script>
   function downloadPdf() {
-    if (typeof document.createElement('a').download !== 'undefined') {
-      const link = document.createElement('a');
-      link.href = 'Certificate.pdf';
-      link.download = 'Certificate.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } else {
-      window.alert("Download not supported. Opening PDF in new tab.");
-      window.open('Certificate.pdf');
-    }
+    const link = document.createElement('a');
+    link.href = 'Certificate.pdf';
+    link.download = 'Certificate.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 
   function viewPdf() {
-    window.open('Certificate.pdf');
+    window.open('Certificate.pdf', '_blank');
   }
 </script>
 
